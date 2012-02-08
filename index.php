@@ -30,16 +30,19 @@ $step = min($amountSteps, count($_SESSION['ratings']) + 1);
 
 if (count($_SESSION['ratings']) == $amountSteps) {
 	$done = true;
-	
 	foreach ($_SESSION['ratings'] as $image => $rating) {
 		$results[array_search($image, $images)] = $rating;
 		$ratings[$image] = isset($options[$rating]) ? $options[$rating] : null;
 	}
-	
 	ksort($results);
+}
+
+if ($done && !isset($_SESSION['saved'])) {
 	$handle = fopen($dataFile, 'a');
 	fputcsv($handle, $results);
 	fclose($handle);
+	
+	$_SESSION['saved'] = true;
 }
 
 include 'layout.php';

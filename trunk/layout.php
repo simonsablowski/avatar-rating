@@ -27,30 +27,30 @@
 								<img src="<?php echo $basePath; ?>img/<?php echo $image; ?>" alt="<?php echo $image; ?>"/>
 							</div>
 							<ul>
-<?php foreach ($options as $optionKey => $optionLabel): ?>
+<?php foreach ($ratingOptions as $key => $label): ?>
 								<li>
-									<input class="radio" id="rating<?php echo $optionKey; ?>" type="radio" name="rating" value="<?php echo $optionKey; ?>"/>
-									<label for="rating<?php echo $optionKey; ?>">
-										<?php echo $optionLabel; ?>
+									<input class="radio" id="rating<?php echo $key; ?>" type="radio" name="rating" value="<?php echo $key; ?>"/>
+									<label for="rating<?php echo $key; ?>">
+										<?php echo $label; ?>
 									</label>
 								</li>
 <?php endforeach; ?>
 							</ul>
-							<input class="submit" type="submit" name="submit" value="<?php echo $submit; ?>"/>
+							<input class="submit" type="submit" name="submit" value="<?php echo $submitRating; ?>"/>
 						</fieldset>
 					</form>
 <?php else: ?>
 					<p>
-						<?php echo $thanks; ?>
+						<?php echo nl2br($thanks); ?>
 
 					</p>
-					<ul>
+<?php /*					<ul>
 <?php foreach ($ratings as $image => $rating): ?>
 						<li>
 							<img src="<?php echo $basePath; ?>img/<?php echo $image; ?>" alt="<?php echo $image; ?>" style="width: 100px;"/> ... <?php echo $rating; ?>
 						</li>
 <?php endforeach; ?>
-					</ul>
+					</ul>*/ ?>
 <?php endif; ?>
 				</div>
 			</div>

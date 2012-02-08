@@ -119,7 +119,8 @@
 		</div>
 		<div id="footer">
 			<p id="copyright">
-				&copy; 2012 <a href="http://www.simsab.net" title="Simon Sablowski">Simon Sablowski</a>
+				<?php print $copyright; ?>
+
 			</p>
 		</div>
 	</body>

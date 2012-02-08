@@ -38,6 +38,10 @@ if (isset($_POST['gender']) && isset($_POST['age'])) {
 	$genderValid = isset($genderOptions[$_POST['gender']]);
 	$ageValid = in_array($_POST['age'], $ageRange);
 	if ($genderValid && $ageValid) {
+		$_SESSION['personal'] = array(
+			'gender' => $_POST['gender'],
+			'age' => $_POST['age']
+		);
 		$_SESSION['started'] = true;
 	}
 }
@@ -62,7 +66,7 @@ if (isset($_POST['rating']) && isset($_POST['image'])) {
 $image = end($_SESSION['images']);
 $step = min($amountSteps, count($_SESSION['ratings']) + 1);
 
-// prepare results for ouput, there are no more ratings to be made
+// prepare results for saving, there are no more ratings to be made
 
 if (count($_SESSION['ratings']) == $amountSteps) {
 	$done = true;
@@ -71,6 +75,10 @@ if (count($_SESSION['ratings']) == $amountSteps) {
 		$ratings[$image] = isset($options[$rating]) ? $options[$rating] : null;
 	}
 	ksort($results);
+}
+
+if ($done && isset($_SESSION['personal'])) {
+	$results = array_merge($results, $_SESSION['personal']);
 }
 
 // save all results in the data file

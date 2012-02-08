@@ -66,6 +66,7 @@ $welcome3 = "First off, please tell us a little about yourself:";
 $textGender = "I am: ";
 $textAge = "... and my age is: ";
 $thanks = "Thank you for your help! If you don't mind, we have a few more questions before you go:";
+$copyright = "&copy; 2012 <a href=\"http://www.simsab.net\" title=\"Simon Sablowski\">Simon Sablowski</a>";
 
 $amountPreview = 7;
 

@@ -1,0 +1,62 @@
+html, body, #document {
+	height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+#document {
+	position: relative;
+	width: 100%;
+}
+
+body > #document {
+	height: auto;
+	min-height: 100%;
+}
+
+#header h1 {
+	padding: 30px 20px 50px;
+	text-transform: uppercase;
+}
+
+#body {
+	padding-bottom: 30px;
+}
+
+#body {
+	line-height: 2.0;
+}
+
+#body p {
+	padding-bottom: 10px;
+}
+
+#body a, #body em {
+	white-space: nowrap;
+}
+
+#body #content {
+	padding: 0 20px;
+}
+
+#body .fieldset input, #popup .fieldset input {
+	border: 0 none;
+}
+
+#body .fieldset .submit, #popup .fieldset .submit {
+	padding: 1px 2px;
+}
+
+#footer {
+	height: 30px;
+	margin-top: -30px;
+	position: relative;
+	width: 100%;
+}
+
+#copyright {
+	font-size: 75%;
+	padding: 6px 12px;
+}

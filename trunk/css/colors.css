@@ -1,0 +1,46 @@
+html {
+	background-color: #f3f3f3;
+}
+
+abbr, acronym {
+	border-color: #ccc;
+}
+
+#body h1 {
+	color: #333;
+	text-shadow: 0 1px 0 #ddd;
+}
+
+#body a, #body em, #body strong {
+	color: #90c;
+}
+
+#body a:hover {
+	color: #a0f;
+}
+
+#body .fieldset input {
+	background-color: #ccc;
+	color: #000;
+}
+
+#body .fieldset .submit {
+	background-color: #e6f;
+	color: #fff;
+}
+
+#footer {
+	background-color: #fff;
+}
+
+#copyright {
+	color: #666;
+}
+
+#copyright a {
+	color: #999;
+}
+
+#copyright a:hover {
+	color: #bbb;
+}

@@ -1,5 +1,7 @@
 <?php
 
+// the rated images: changing these in production can invalidate the data file
+
 $images = array(
 	'cfAV1.png',
 	'cfAV2.png',
@@ -39,6 +41,8 @@ $images = array(
 	'cmAV18.png'
 );
 
+// rating options: all keys, values and the item order are configurable
+
 $ratingOptions = array(
 	1 => 'very attractive',
 	2 => 'quite attractive',
@@ -49,12 +53,18 @@ $ratingOptions = array(
 	7 => 'very unattractive'
 );
 
+// gender options: all keys, values and the item order are configurable
+
 $genderOptions = array(
 	'm' => 'male',
 	'f' => 'female'
 );
 
+// age range: this is fully configurable
+
 $ageRange = range(12, 99);
+
+// all texts are fully configurable
 
 $title = 'Online Avatar Attractiveness';
 $submitStart = 'Start';
@@ -68,7 +78,11 @@ $textAge = "... and my age is: ";
 $thanks = "Thank you for your help! If you don't mind, we have a few more questions before you go:";
 $copyright = "&copy; 2012 <a href=\"http://www.simsab.net\" title=\"Simon Sablowski\">Simon Sablowski</a>";
 
+// the configurable amount of preview images on the welcome page
+
 $amountPreview = 7;
+
+// system settings
 
 $basePath = '/avatars/';
 $dataFile = 'data.txt';

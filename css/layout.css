@@ -7,8 +7,9 @@ a {
 }
 
 #document {
+	margin: 0 auto;
 	position: relative;
-	width: 100%;
+	width: 1000px;
 }
 
 body > #document {
@@ -29,7 +30,7 @@ body > #document {
 	line-height: 2.0;
 }
 
-#body p {
+#body p, #body ul {
 	padding-bottom: 10px;
 }
 
@@ -50,7 +51,12 @@ body > #document {
 }
 
 #body .image img {
-	width: 200px;
+	height: 220px;
+}
+
+#body .preview img {
+	height: 110px;
+	margin-right: 20px;
 }
 
 #footer {

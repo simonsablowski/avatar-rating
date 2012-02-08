@@ -2,10 +2,16 @@
 
 include 'config.php';
 
+// variables available in layout, there are more in config.php
+
+$started = false;
 $done = false;
 $ratings = array();
 $results = array();
 $amountSteps = count($images);
+$previewImages = array();
+
+// initialize session and store images and ratings in it
 
 session_start();
 
@@ -19,14 +25,44 @@ if (!isset($_SESSION['ratings'])) {
 	$_SESSION['ratings'] = array();
 }
 
-if (isset($_POST['rating']) && isset($_POST['image'])) {
-	$_SESSION['ratings'][$_POST['image']] = $_POST['rating'];
-	array_pop($_SESSION['images']);
+// get preview images
+
+$previewKeys = array_rand($images, $amountPreview);
+foreach ($previewKeys as $key) {
+	$previewImages[] = $images[$key];
 }
 
-$image = end($_SESSION['images']);
+// start asking for gender and age
 
+if (isset($_POST['gender']) && isset($_POST['age'])) {
+	$genderValid = isset($genderOptions[$_POST['gender']]);
+	$ageValid = in_array($_POST['age'], $ageRange);
+	if ($genderValid && $ageValid) {
+		$_SESSION['started'] = true;
+	}
+}
+
+if (isset($_SESSION['started']) && $_SESSION['started'] == true) {
+	$started = true;
+}
+
+// save image rating
+
+if (isset($_POST['rating']) && isset($_POST['image'])) {
+	$ratingValid = isset($ratingOptions[$_POST['rating']]);
+	$imageValid = $_POST['image'] == end($_SESSION['images']);
+	if ($ratingValid && $imageValid) {
+		$_SESSION['ratings'][$_POST['image']] = $_POST['rating'];
+		array_pop($_SESSION['images']);
+	}
+}
+
+// get current image and step
+
+$image = end($_SESSION['images']);
 $step = min($amountSteps, count($_SESSION['ratings']) + 1);
+
+// prepare results for ouput, there are no more ratings to be made
 
 if (count($_SESSION['ratings']) == $amountSteps) {
 	$done = true;
@@ -37,11 +73,12 @@ if (count($_SESSION['ratings']) == $amountSteps) {
 	ksort($results);
 }
 
+// save all results in the data file
+
 if ($done && !isset($_SESSION['saved'])) {
 	$handle = fopen($dataFile, 'a');
 	fputcsv($handle, $results);
 	fclose($handle);
-	
 	$_SESSION['saved'] = true;
 }
 

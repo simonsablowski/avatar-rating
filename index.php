@@ -72,7 +72,7 @@ if (count($_SESSION['ratings']) == $amountSteps) {
 	$done = true;
 	foreach ($_SESSION['ratings'] as $image => $rating) {
 		$results[array_search($image, $images)] = $rating;
-		$ratings[$image] = isset($options[$rating]) ? $options[$rating] : null;
+		$ratings[$image] = isset($ratingOptions[$rating]) ? $ratingOptions[$rating] : null;
 	}
 	ksort($results);
 }

@@ -64,18 +64,44 @@ $genderOptions = array(
 
 $ageRange = range(12, 99);
 
+// x options: all keys, values and the item order are configurable
+
+$xOptions = array(
+	'0' => 'a',
+	'1' => 'b'
+);
+
+// y range: all keys, values and the item order are configurable
+
+$yRange = array(
+	'0' => 'a',
+	'1' => 'b'
+);
+
+// z range: all kezs, values and the item order are configurable
+
+$zRange = array(
+	'0' => 'a',
+	'1' => 'b'
+);
+
 // all texts are fully configurable
 
 $title = 'Online Avatar Attractiveness';
-$submitStart = 'Start';
-$submitRating = 'Next';
-$stepFormat = 'Step %d/%d';
 $welcome1 = "Welcome!\nOn the following page you will be shown a series of images of avatars similar to those below:";
 $welcome2 = "We ask you to take a moment and tell us how attractive or unattractive you rate this avatar's appearance on a scale of 1 to 7 as shown below:";
 $welcome3 = "First off, please tell us a little about yourself:";
 $textGender = "I am: ";
 $textAge = "... and my age is: ";
-$thanks = "Thank you for your help! If you don't mind, we have a few more questions before you go:";
+$submitStart = 'Start';
+$stepFormat = 'Step %d/%d';
+$submitRating = 'Next';
+$thanks1 = "Thank you for your help! If you don't mind, we have a few more questions before you go:";
+$textX = "... ";
+$textY = "... ";
+$textZ = "... ";
+$submitSave = 'Save';
+$thanks2 = "At last, here you can review your results:";
 $copyright = "&copy; 2012 <a href=\"http://www.simsab.net\" title=\"Simon Sablowski\">Simon Sablowski</a>";
 
 // the configurable amount of preview images on the welcome page

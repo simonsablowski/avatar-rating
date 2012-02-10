@@ -30,6 +30,10 @@ body > #document {
 	line-height: 2.0;
 }
 
+#body div {
+	padding-bottom: 20px;
+}
+
 #body p, #body ul {
 	padding-bottom: 10px;
 }
@@ -57,6 +61,11 @@ body > #document {
 #body .preview img {
 	height: 110px;
 	margin-right: 20px;
+}
+
+#body .thumbnail img {
+	height: 40px;
+	margin-right: 5px;
 }
 
 #footer {

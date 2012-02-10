@@ -17,30 +17,32 @@
 			<div id="body">
 				<div id="content">
 <?php if ($started && !$done): ?>
-					<form action="<?php print $basePath; ?>" method="post">
-						<input type="hidden" name="image" value="<?php print $image; ?>"/>
-						<fieldset class="fieldset">
-							<div class="step">
-								<?php printf($stepFormat, $step, $amountSteps); ?>
-							</div>
-							<div class="image">
-								<img src="<?php print $basePath; ?>img/<?php print $image; ?>" alt="<?php print $image; ?>"/>
-							</div>
-							<ul>
+					<div>
+						<form action="<?php print $basePath; ?>" method="post">
+							<input type="hidden" name="image" value="<?php print $image; ?>"/>
+							<fieldset class="fieldset">
+								<div class="step">
+									<?php printf($stepFormat, $step, $amountSteps); ?>
+								</div>
+								<p class="image">
+									<img src="<?php print $basePath; ?>img/<?php print $image; ?>" alt="<?php print $image; ?>"/>
+								</p>
+								<ul>
 <?php foreach ($ratingOptions as $key => $label): ?>
-								<li>
-									<input class="radio" id="rating<?php print $key; ?>" type="radio" name="rating" value="<?php print $key; ?>"/>
-									<label for="rating<?php print $key; ?>">
-										<?php print $label; ?>
-									</label>
-								</li>
+									<li>
+										<input class="radio" id="rating<?php print $key; ?>" type="radio" name="rating" value="<?php print $key; ?>"/>
+										<label for="rating<?php print $key; ?>">
+											<?php print $label; ?>
+										</label>
+									</li>
 <?php endforeach; ?>
-							</ul>
-							<p>
-								<input class="submit" type="submit" name="submit" value="<?php print $submitRating; ?>"/>
-							</p>
-						</fieldset>
-					</form>
+								</ul>
+								<p>
+									<input class="submit" type="submit" name="submit" value="<?php print $submitRating; ?>"/>
+								</p>
+							</fieldset>
+						</form>
+					</div>
 <?php elseif (!$started): ?>
 					<p>
 						<?php print nl2br($welcome1); ?>
@@ -55,64 +57,116 @@
 						<?php print nl2br($welcome2); ?>
 
 					</p>
-					<form action="#">
-						<fieldset class="fieldset">
-							<ul>
+					<div>
+						<form action="#">
+							<fieldset class="fieldset">
+								<ul>
 <?php foreach ($ratingOptions as $key => $label): ?>
-								<li>
-									<input class="disabled radio" disabled="disabled" id="rating<?php print $key; ?>" type="radio" name="rating" value="<?php print $key; ?>"/>
-									<label for="rating<?php print $key; ?>">
-										<?php print $label; ?>
-									</label>
-								</li>
+									<li>
+										<input class="disabled radio" disabled="disabled" id="rating<?php print $key; ?>" type="radio" name="rating" value="<?php print $key; ?>"/>
+										<label for="rating<?php print $key; ?>">
+											<?php print $label; ?>
+										</label>
+									</li>
 <?php endforeach; ?>
-							</ul>
-						</fieldset>
-					</form>
+								</ul>
+							</fieldset>
+						</form>
+					</div>
 					<p>
 						<?php print nl2br($welcome3); ?>
 
 					</p>
-					<form action="<?php print $basePath; ?>" method="post">
-						<fieldset class="fieldset">
-							<p>
-								<?php print $textGender; ?>
+					<div>
+						<form action="<?php print $basePath; ?>" method="post">
+							<fieldset class="fieldset">
+								<p>
+									<?php print $textGender; ?>
 <?php foreach ($genderOptions as $key => $label): ?>
-								<input class="radio" id="gender<?php print $key; ?>" type="radio" name="gender" value="<?php print $key; ?>"/>
-								<label for="gender<?php print $key; ?>">
-									<?php print $label; ?>
-								</label>
+									<input class="radio" id="gender<?php print $key; ?>" type="radio" name="gender" value="<?php print $key; ?>"/>
+									<label for="gender<?php print $key; ?>">
+										<?php print $label; ?>
+									</label>
 <?php endforeach; ?>
-							</p>
-							<p>
-								<?php print $textAge; ?>
+								</p>
+								<p>
+									<?php print $textAge; ?>
 
-								<select name="age">
+									<select name="age">
 <?php foreach ($ageRange as $option): ?>
-									<option value="<?php print $option; ?>"><?php print $option; ?></option>
-								<label for="gender<?php print $key; ?>">
-									<?php print $label; ?>
-								</label>
+										<option value="<?php print $option; ?>"><?php print $option; ?></option>
+									<label for="gender<?php print $key; ?>">
+										<?php print $label; ?>
+									</label>
 <?php endforeach; ?>
-								</select>
-							</p>
-							<p>
-								<input class="submit" type="submit" name="submit" value="<?php print $submitStart; ?>"/>
-							</p>
-						</fieldset>
-					</form>
+									</select>
+								</p>
+								<p>
+									<input class="submit" type="submit" name="submit" value="<?php print $submitStart; ?>"/>
+								</p>
+							</fieldset>
+						</form>
+					</div>
 <?php elseif ($done): ?>
-					<p>
-						<?php print nl2br($thanks); ?>
+					<div>
+						<p>
+							<?php print nl2br($thanks1); ?>
 
-					</p>
-<?php /*					<ul>
-<?php foreach ($ratings as $image => $rating): ?>
-						<li>
-							<img src="<?php print $basePath; ?>img/<?php print $image; ?>" alt="<?php print $image; ?>" style="width: 100px;"/> ... <?php print $rating; ?>
-						</li>
+						</p>
+						<div>
+							<form action="<?php print $basePath; ?>" method="post">
+								<fieldset class="fieldset">
+									<p>
+										<?php print $textX; ?>
+<?php foreach ($xOptions as $key => $label): ?>
+										<input class="radio" id="x<?php print $key; ?>" type="radio" name="x" value="<?php print $key; ?>"/>
+										<label for="x<?php print $key; ?>">
+											<?php print $label; ?>
+										</label>
 <?php endforeach; ?>
-					</ul>*/ ?>
+									</p>
+									<p>
+										<?php print $textY; ?>
+
+										<select name="y">
+<?php foreach ($yRange as $option): ?>
+											<option value="<?php print $option; ?>"><?php print $option; ?></option>
+										<label for="gender<?php print $key; ?>">
+											<?php print $label; ?>
+										</label>
+<?php endforeach; ?>
+										</select>
+									</p>
+									<p>
+										<?php print $textZ; ?>
+
+										<select name="z">
+<?php foreach ($zRange as $option): ?>
+											<option value="<?php print $option; ?>"><?php print $option; ?></option>
+										<label for="gender<?php print $kez; ?>">
+											<?php print $label; ?>
+										</label>
+<?php endforeach; ?>
+										</select>
+									</p>
+									<p>
+										<input class="submit" type="submit" name="submit" value="<?php print $submitSave; ?>"/>
+									</p>
+								</fieldset>
+							</form>
+						</div>
+						<p>
+							<?php print nl2br($thanks2); ?>
+
+						</p>
+						<ul>
+<?php foreach ($ratings as $image => $rating): ?>
+							<li class="thumbnail image">
+								<img src="<?php print $basePath; ?>img/<?php print $image; ?>" alt="<?php print $image; ?>"/> ... <?php print $rating; ?>
+							</li>
+<?php endforeach; ?>
+						</ul>
+					</div>
 <?php endif; ?>
 				</div>
 			</div>

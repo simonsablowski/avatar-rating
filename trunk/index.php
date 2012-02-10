@@ -8,6 +8,7 @@ include 'config.php';
 
 $started = false;
 $done = false;
+$ready = false;
 $saved = false;
 $ratings = array();
 $results = array();
@@ -80,19 +81,28 @@ if (count($_SESSION['ratings']) == $amountSteps) {
 	ksort($results);
 }
 
-// ?
+// save more personal information
 
-if (isset($_POST['x']) && isset($_POST['y']) && isset($_POST['z'])) {
-	$xValid = isset($xOptions[$_POST['x']]);
-	$yValid = in_array($_POST['y'], $yRange);
-	$zValid = in_array($_POST['z'], $zRange);
-	if ($xValid && $yValid && $zValid) {
+if (isset($_POST['generalExperience']) && isset($_POST['specificExperience'])
+		&& isset($_POST['understandability']) && isset($_POST['satisfaction'])) {
+	$generalExperienceValid = isset($generalExperienceOptions[$_POST['generalExperience']]);
+	$specificExperienceValid = isset($specificExperienceOptions[$_POST['specificExperience']]);
+	$understandabilityValid = isset($understandabilityOptions[$_POST['understandability']]);
+	$satisfactionValid = isset($satisfactionOptions[$_POST['satisfaction']]);
+	if ($generalExperienceValid && $specificExperienceValid
+			&& $understandabilityValid && $satisfactionValid) {
 		$_SESSION['personal'] = array_merge($_SESSION['personal'], array(
-			'x' => $_POST['x'],
-			'y' => $_POST['y'],
-			'z' => $_POST['z']
+			'generalExperience' => $_POST['generalExperience'],
+			'specificExperience' => $_POST['specificExperience'],
+			'understandability' => $_POST['understandability'],
+			'satisfaction' => $_POST['satisfaction']
 		));
+		$_SESSION['ready'] = true;
 	}
+}
+
+if (isset($_SESSION['ready']) && $_SESSION['ready'] == true) {
+	$ready = true;
 }
 
 // save all results in the data file
@@ -105,7 +115,7 @@ if (isset($_SESSION['saved']) && $_SESSION['saved'] == true) {
 	$saved = true;
 }
 
-if ($done && !$saved) {
+if ($done && $ready && !$saved) {
 	$handle = fopen($dataFile, 'a');
 	fputcsv($handle, $results, $fieldDelimiter, $fieldEnclosure);
 	fclose($handle);

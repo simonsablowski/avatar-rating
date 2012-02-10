@@ -112,3 +112,5 @@ $amountPreview = 7;
 
 $basePath = '/avatars/';
 $dataFile = 'data.txt';
+$fieldDelimiter = ',';
+$fieldEnclosure = '"';

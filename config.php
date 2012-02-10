@@ -111,9 +111,13 @@ $understandabilityText = "Were the instructions for the rating easy to understan
 $satisfactionText = "Are you happy with your answers? ";
 $submitSave = 'Save';
 $thanks2 = "At last, here you can review your results:";
-$copyright = "&copy; 2012 <a href=\"http://www.simsab.net\" title=\"Simon Sablowski\">Simon Sablowski</a>";
+$copyright = "&copy; 2012 <a href=\"http://www.simsab.net\" title=\"simsab\">simsab</a>";
 
-// the configurable amount of preview images on the welcome page
+// the amount of rated images is configurable
+
+$amountRated = 15;
+
+// the amount of preview images on the welcome page is configurable
 
 $amountPreview = 7;
 

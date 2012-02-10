@@ -81,7 +81,8 @@
 						<form action="<?php print $basePath; ?>" method="post">
 							<fieldset class="fieldset">
 								<p>
-									<?php print $textGender; ?>
+									<?php print $genderText; ?>
+
 <?php foreach ($genderOptions as $key => $label): ?>
 									<input class="radio" id="gender<?php print $key; ?>" type="radio" name="gender" value="<?php print $key; ?>"/>
 									<label for="gender<?php print $key; ?>">
@@ -90,14 +91,11 @@
 <?php endforeach; ?>
 								</p>
 								<p>
-									<?php print $textAge; ?>
+									<?php print $ageText; ?>
 
 									<select name="age">
 <?php foreach ($ageRange as $option): ?>
 										<option value="<?php print $option; ?>"><?php print $option; ?></option>
-									<label for="gender<?php print $key; ?>">
-										<?php print $label; ?>
-									</label>
 <?php endforeach; ?>
 									</select>
 								</p>
@@ -109,7 +107,7 @@
 					</div>
 <?php elseif ($done): ?>
 					<div>
-<?php if (!$saved): ?>
+<?php if (!$ready): ?>
 						<p>
 							<?php print nl2br($thanks1); ?>
 
@@ -118,37 +116,51 @@
 							<form action="<?php print $basePath; ?>" method="post">
 								<fieldset class="fieldset">
 									<p>
-										<?php print $textX; ?>
-<?php foreach ($xOptions as $key => $label): ?>
-										<input class="radio" id="x<?php print $key; ?>" type="radio" name="x" value="<?php print $key; ?>"/>
-										<label for="x<?php print $key; ?>">
+										<?php print $generalExperienceText; ?>
+
+									</p>
+									<p>
+										<select name="generalExperience">
+<?php foreach ($generalExperienceOptions as $key => $label): ?>
+											<option value="<?php print $key; ?>"><?php print $label; ?></option>
+<?php endforeach; ?>
+										</select>
+									</p>
+									<p>
+										<?php print $specificExperienceText; ?>
+
+									</p>
+									<p>
+<?php foreach ($specificExperienceOptions as $key => $label): ?>
+										<input class="radio" id="specificExperience<?php print $key; ?>" type="radio" name="specificExperience" value="<?php print $key; ?>"/>
+										<label for="specificExperience<?php print $key; ?>">
 											<?php print $label; ?>
 										</label>
 <?php endforeach; ?>
 									</p>
 									<p>
-										<?php print $textY; ?>
+										<?php print $understandabilityText; ?>
 
-										<select name="y">
-<?php foreach ($yRange as $option): ?>
-											<option value="<?php print $option; ?>"><?php print $option; ?></option>
-										<label for="gender<?php print $key; ?>">
-											<?php print $label; ?>
-										</label>
-<?php endforeach; ?>
-										</select>
 									</p>
 									<p>
-										<?php print $textZ; ?>
-
-										<select name="z">
-<?php foreach ($zRange as $option): ?>
-											<option value="<?php print $option; ?>"><?php print $option; ?></option>
-										<label for="gender<?php print $kez; ?>">
+<?php foreach ($understandabilityOptions as $key => $label): ?>
+										<input class="radio" id="understandability<?php print $key; ?>" type="radio" name="understandability" value="<?php print $key; ?>"/>
+										<label for="understandability<?php print $key; ?>">
 											<?php print $label; ?>
 										</label>
 <?php endforeach; ?>
-										</select>
+									</p>
+									<p>
+										<?php print $satisfactionText; ?>
+
+									</p>
+									<p>
+<?php foreach ($satisfactionOptions as $key => $label): ?>
+										<input class="radio" id="satisfaction<?php print $key; ?>" type="radio" name="satisfaction" value="<?php print $key; ?>"/>
+										<label for="satisfaction<?php print $key; ?>">
+											<?php print $label; ?>
+										</label>
+<?php endforeach; ?>
 									</p>
 									<p>
 										<input class="submit" type="submit" name="submit" value="<?php print $submitSave; ?>"/>

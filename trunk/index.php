@@ -12,7 +12,7 @@ $ready = false;
 $saved = false;
 $ratings = array();
 $results = array();
-$amountSteps = count($images);
+$amountSteps = 0;
 $previewImages = array();
 
 // initialize session and store images and ratings in it
@@ -22,7 +22,12 @@ session_start();
 if (!isset($_SESSION['images'])) {
 	$shuffled = $images;
 	shuffle($shuffled);
-	$_SESSION['images'] = $shuffled;
+	$_SESSION['images'] = array_rand(array_flip($shuffled), $amountRated);
+	$_SESSION['amountSteps'] = count($_SESSION['images']);
+}
+
+if (isset($_SESSION['amountSteps'])) {
+	$amountSteps = $_SESSION['amountSteps'];
 }
 
 if (!isset($_SESSION['ratings'])) {
@@ -31,10 +36,7 @@ if (!isset($_SESSION['ratings'])) {
 
 // get preview images
 
-$previewKeys = array_rand($images, $amountPreview);
-foreach ($previewKeys as $key) {
-	$previewImages[] = $images[$key];
-}
+$previewImages = array_rand(array_flip($images), $amountPreview);
 
 // start asking for gender and age
 

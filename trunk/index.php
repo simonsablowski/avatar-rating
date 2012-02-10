@@ -1,11 +1,14 @@
 <?php
 
+// get configured rated images, field options, texts and system settings
+
 include 'config.php';
 
 // variables available in layout, there are more in config.php
 
 $started = false;
 $done = false;
+$saved = false;
 $ratings = array();
 $results = array();
 $amountSteps = count($images);
@@ -77,17 +80,38 @@ if (count($_SESSION['ratings']) == $amountSteps) {
 	ksort($results);
 }
 
-if ($done && isset($_SESSION['personal'])) {
-	$results = array_merge($results, $_SESSION['personal']);
+// ?
+
+if (isset($_POST['x']) && isset($_POST['y']) && isset($_POST['z'])) {
+	$xValid = isset($xOptions[$_POST['x']]);
+	$yValid = in_array($_POST['y'], $yRange);
+	$zValid = in_array($_POST['z'], $zRange);
+	if ($xValid && $yValid && $zValid) {
+		$_SESSION['personal'] = array_merge($_SESSION['personal'], array(
+			'x' => $_POST['x'],
+			'y' => $_POST['y'],
+			'z' => $_POST['z']
+		));
+	}
 }
 
 // save all results in the data file
 
-if ($done && !isset($_SESSION['saved'])) {
+if ($done && isset($_SESSION['personal'])) {
+	$results = array_merge($results, $_SESSION['personal']);
+}
+
+if (isset($_SESSION['saved']) && $_SESSION['saved'] == true) {
+	$saved = true;
+}
+
+if ($done && !$saved) {
 	$handle = fopen($dataFile, 'a');
-	fputcsv($handle, $results);
+	fputcsv($handle, $results, $fieldDelimiter, $fieldEnclosure);
 	fclose($handle);
 	$_SESSION['saved'] = true;
 }
+
+// render page
 
 include 'layout.php';

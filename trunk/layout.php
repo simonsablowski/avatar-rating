@@ -109,6 +109,7 @@
 					</div>
 <?php elseif ($done): ?>
 					<div>
+<?php if (!$saved): ?>
 						<p>
 							<?php print nl2br($thanks1); ?>
 
@@ -155,6 +156,7 @@
 								</fieldset>
 							</form>
 						</div>
+<?php else: ?>
 						<p>
 							<?php print nl2br($thanks2); ?>
 
@@ -166,6 +168,7 @@
 							</li>
 <?php endforeach; ?>
 						</ul>
+<?php endif; ?>
 					</div>
 <?php endif; ?>
 				</div>

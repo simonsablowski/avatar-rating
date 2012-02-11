@@ -76,6 +76,7 @@ $step = min($amountSteps, count($_SESSION['ratings']) + 1);
 
 if (count($_SESSION['ratings']) == $amountSteps) {
 	$done = true;
+	$results = array_fill(0, count($images), '');
 	foreach ($_SESSION['ratings'] as $image => $rating) {
 		$results[array_search($image, $images)] = $rating;
 		$ratings[$image] = isset($ratingOptions[$rating]) ? $ratingOptions[$rating] : null;

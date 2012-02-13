@@ -97,7 +97,7 @@ $satisfactionOptions = array(
 
 $title = 'Online Avatar Attractiveness';
 $welcome1 = "Welcome!\nOn the following page you will be shown a series of images of avatars similar to those below:";
-$welcome2 = "We ask you to take a moment and tell us how attractive or unattractive you rate this avatar's appearance on a scale of 1 to 7 as shown below:";
+$welcome2 = "We ask you to take a moment and tell us how you rate each avatar presented in terms of appearance on a scale of 1 to 7 as shown below:";
 $welcome3 = "First off, please tell us a little about yourself:";
 $genderText = "I am: ";
 $ageText = "... and my age is: ";
@@ -111,7 +111,7 @@ $understandabilityText = "Were the instructions for the rating easy to understan
 $satisfactionText = "Are you happy with your answers? ";
 $submitSave = 'Save';
 $thanks2 = "At last, here you can review your results:";
-$copyright = "&copy; 2012 <a href=\"http://www.simsab.net\" title=\"simsab\">simsab</a>";
+$copyright = "All shown avatars were created within <a href=\"http://secondlife.com\" title=\"Second Life\">Second Life</a>, property of Linden Research, Inc.";
 
 // the amount of rated images is configurable
 

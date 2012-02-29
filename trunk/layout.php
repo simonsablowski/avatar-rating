@@ -23,23 +23,26 @@
 							<fieldset class="fieldset">
 								<div class="step">
 									<?php printf($stepFormat, $step, $amountSteps); ?>
+
 								</div>
 								<p class="image">
 									<img src="<?php print $basePath; ?>img/<?php print $image; ?>" alt="<?php print $image; ?>"/>
 								</p>
-								<ul>
+								<div class="form">
+									<ul>
 <?php foreach ($ratingOptions as $key => $label): ?>
-									<li>
-										<input class="radio" id="rating<?php print $key; ?>" type="radio" name="rating" value="<?php print $key; ?>"/>
-										<label for="rating<?php print $key; ?>">
-											<?php print $label; ?>
-										</label>
-									</li>
+										<li>
+											<input class="radio" id="rating<?php print $key; ?>" type="radio" name="rating" value="<?php print $key; ?>"/>
+											<label for="rating<?php print $key; ?>">
+												<?php print $label; ?>
+											</label>
+										</li>
 <?php endforeach; ?>
-								</ul>
-								<p>
-									<input class="submit" type="submit" name="submit" value="<?php print $submitRating; ?>"/>
-								</p>
+									</ul>
+									<p>
+										<input class="submit" type="submit" name="submit" value="<?php print $submitRating; ?>"/>
+									</p>
+								</div>
 							</fieldset>
 						</form>
 					</div>

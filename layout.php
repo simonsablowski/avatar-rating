@@ -51,7 +51,7 @@
 						<?php print nl2br($welcome1); ?>
 
 					</p>
-					<div class="preview image">
+					<div class="preview">
 <?php foreach ($previewImages as $image): ?>
 						<img src="<?php print $basePath; ?>img/<?php print $image; ?>" alt="<?php print $image; ?>"/>
 <?php endforeach; ?>
@@ -178,7 +178,7 @@
 						</p>
 						<ul>
 <?php foreach ($ratings as $image => $rating): ?>
-							<li class="thumbnail image">
+							<li class="thumbnail">
 								<img src="<?php print $basePath; ?>img/<?php print $image; ?>" alt="<?php print $image; ?>"/> ... <?php print $rating; ?>
 							</li>
 <?php endforeach; ?>

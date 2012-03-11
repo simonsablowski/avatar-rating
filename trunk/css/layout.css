@@ -55,7 +55,6 @@ body > #document {
 }
 
 #body .image img {
-	float: left;
 	height: 440px;
 }
 
@@ -65,13 +64,8 @@ body > #document {
 }
 
 #body .thumbnail img {
-	height: 40px;
+	height: 60px;
 	margin-right: 5px;
-}
-
-#body .form {
-	float: left;
-	margin-left: 20px;
 }
 
 #footer {
